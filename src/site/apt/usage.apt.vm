@@ -1,0 +1,65 @@
+ ---------------------------------------------------
+ ZIP Bundle Plugin for Apache Maven - Usage
+ ---------------------------------------------------
+
+Usage
+
+  To use the plugin, simply add it to any POM where it is needed. This is usually best done at the top of a multi-module
+  project:
+
+----
+<plugin>
+  <groupId>com.maestrodev</groupId>
+  <artifactId>zip-bundle-maven-plugin</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <extensions>true</extensions>
+</plugin>
+----
+
+ <<Please be aware that the effects of the plugin are universal for dependencies of type zip.>>
+
+* Using the ZIP type for dependencies
+
+  The ZIP type can be used for dependencies with that extension, as it was before:
+
+----
+<dependency>
+  <groupId>com.example</groupId>
+  <artifactId>application</artifactId>
+  <version>1.0</version>
+  <type>zip</type>
+</dependency>
+----
+
+  The difference is that any transitive dependencies of the ZIP will no longer be resolved.
+
+* Using the ZIP packaging for projects
+
+  This plugin also exposes a new packaging type that binds the assembly plugin and standard goals to the lifecycle:
+
+----
+<project>
+  ...
+  <packaging>zip</packaging>
+  ...
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.3</version>
+          <configuration>
+            <descriptors>
+              <descriptor>src/main/assembly/zip.xml</descriptor>
+            </descriptors>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
+----
+
+  As you can see, you still need to tell the assembly plugin where the descriptor is, but it is no longer necessary to
+  call the goals or use the <<<pom>>> packaging type.

@@ -1,0 +1,16 @@
+ -------------------------------------------
+ ZIP Bundle Plugin for Apache Maven
+ -------------------------------------------
+
+ZIP Bundle Plugin for Apache Maven
+
+  Plugin for Apache Maven that adds a packaging type for `zip` that considers transitive dependencies as bundled.
+
+* Goals Overview
+
+  The plugin has no goals at this time.
+
+* Usage
+
+  General usage instructions are found on the {{{./usage.html} Usage}} page.
+
