@@ -19,7 +19,7 @@
 
   <groupId>com.maestrodev</groupId>
   <artifactId>zip-bundle-maven-plugin</artifactId>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>ZIP Bundle Maven Plugin</name>
